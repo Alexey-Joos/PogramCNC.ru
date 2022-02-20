@@ -1,0 +1,336 @@
+html{
+	font-family:Bookman, URW Bookman L, sans-serif;
+    font-size: 16px;
+    background: #e4e4e4;
+ }
+
+header
+{
+	background-image: url('background1.PNG');
+	background-size: auto 65px;
+	max-width:2160px;
+	min-width:1250px;
+	margin:0px auto;
+	font-size: 20px;
+	box-shadow: 2px 2px 4px 1px black;
+	border-radius: 5px;
+}	
+
+
+.sub_header
+{
+	max-width:1280px;
+	min-width:1250px;
+	margin:0px auto;
+	height: 65px;
+}
+
+#Logotip
+{
+	width:500px;
+	height: 65px;
+	float: left;
+	margin-left: 1em;
+}
+
+#Lozyng
+{
+	width:520px;
+	height: 65px;
+	float: left;
+	margin-left: 5em;
+}
+
+.menu{
+
+ 	max-width:1250px;
+	min-width:1250px;
+	margin:0px auto;
+	padding-left:50px;
+	padding-top: 10px;
+	text-decoration: none;
+	color: black;
+
+}
+
+
+
+footer{
+	margin-top: 10px;
+}
+
+#footer_sub{
+	background-color: #323232;
+	color:white;
+	margin-top:15px;
+	border: 4px black;
+	box-shadow: 0 0 5px 1px black;
+	max-width:2160px;
+	min-width:1250px;
+	min-height: 5em;
+	margin:0px auto;
+
+}
+
+#footer_sub_1{
+	max-width:1280px;
+	min-width:1250px;
+	margin:0px auto;
+	padding-left: 50px;
+	padding-top: 10px;
+}
+
+#footer_main{
+	background-color: #181818;
+	color:white;
+	border: 4px black;
+	box-shadow: 0 0 5px 1px black;
+	line-height: 2.5em;
+	text-align: center;
+	max-width:2160px;
+	min-width:1250px;
+	font-size:12px;
+	margin:0px auto;
+}
+
+
+
+
+
+
+
+
+
+#viber{
+	color:#90f;;
+	border: 1px solid #90f;
+	width: 165px;
+}
+
+#telegram{
+	color:#0096ff;;
+	border: 1px solid #0096ff;
+	width: 165px;
+}
+
+#vk{
+	color:#4d7198;
+	border: 1px solid #4d7198;
+	width: 160px;
+}
+
+#mail{
+	color:black;
+	border: 1px solid black;
+	width: 245px;
+}
+
+#phone{
+	color:#33a833;
+	border: 1px solid #33a833;
+	width: 180px;
+	margin-bottom:7.5px;
+}
+
+#icon,#nik{
+	float: left;
+	position:relative;
+	margin-left:4.5px;
+}
+
+#icon{
+	line-height: 47px;
+}
+#nik{
+	line-height: 35px;
+}
+
+#main{
+	max-width:2160px;
+	min-width:1250px;
+	margin:0px auto;
+}
+
+#sub_main{
+	background-image: url('frezernie-raboti1.jpg');
+	margin-top:10px;
+	border: 4px black;
+	box-shadow: 0 0 5px 1px black;
+	padding: 0px;
+	min-height: 330px;
+}
+
+.reklama{
+	width:100%;
+}
+
+#N1,#N2,#N3,#N4,#N5,#N6{
+	font-family:Bookman, URW Bookman L, sans-serif;
+	color:white;
+	background: rgba(0, 0, 0, 0.694);
+	width:350px;
+	height:95px;
+	font-size: 20px;
+	text-align: center;
+	padding:10px;
+	margin-top:30px;
+	margin-left: 2em;
+	float: left;
+	border-radius: 20px;
+	box-shadow: 0 0 8px 1px black;
+	overflow: hidden;
+
+}
+
+span{
+	font-size: 25px;
+	font-style: italic;
+	font-weight: bold;
+	line-height: 30px;
+}
+
+
+button{
+	font-size: 15px;
+}
+
+#text{
+	text-align: justify;
+}
+
+#min_title{
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#out{
+	font-size: 25px;
+	font-weight: normal;
+	width: 60px;
+	line-height: 23px;
+
+}
+
+#fz_h_1,#fz_ae_1,#diam_h,#fz_h,#fz_ae,#diam_fz,#out_Q,#f_q,#shir,#glyb,#diam,#oboroti,#skorez,#diam_n,#fz,#f_1,#fz_1,#fz_2,#z,#z_1,#z_2,#oboroti_fz,#oboroti_fz_1{
+	line-height: 23px;
+	font-size: 20px;
+	max-width:60px;
+
+
+}
+
+#out_fz_3,#out_fz_2,#out_V,#out_fz,#out_fz_1,#result123,#out_n{
+	line-height: 23px;
+	font-size: 20px;
+	max-width:80px;
+}
+#N6{
+	margin-bottom: 30px;
+}
+
+#znam,#chisl,#ravno,#chisl_1,#znam_1,#znam_3,#chisl_3{
+	margin-top: -45px;
+	position: relative;
+	margin-left: 45px;
+	font-size: 25px;
+	font-style: italic;
+	font-weight: bold;
+	line-height: 30px;
+}
+#ravno{
+	margin-left: 135px;
+	margin-top: -45px;
+	position: relative;
+}
+#znam{
+	border-bottom: 2px solid  Black;
+	width:80px;
+	padding-left: 5px;
+}
+
+#znam_1{
+	border-bottom: 2px solid  Black;
+	width:80px;
+	padding-left: 5px;
+	text-align: center;
+}
+
+#znam_2{
+	border-bottom: 2px solid  Black;
+	width:180px;
+	padding-left: 5px;
+	margin-left: 45px;
+	margin-top: -50px;
+	text-align: center;
+}
+
+#znam_3{
+	border-bottom: 2px solid  Black;
+	width:100px;
+	padding-left: 5px;
+	margin-left: 45px;
+	margin-top: -55px;
+	text-align: center;
+}
+
+#rez_out_V{
+	margin-left: 155px;
+	margin-top: -30px;
+	position: relative;
+}
+
+#rez_out_n{
+	margin-left: 135px;
+	margin-top: -45px;
+	position: relative;
+}
+
+#rez_out_fz_1{
+	margin-left: 240px;
+	margin-top: -45px;
+	position: relative;
+}
+
+#rez_out_Q{
+	margin-left: 160px;
+	margin-top: -45px;
+	position: relative;
+}
+
+#but{
+	margin-top: 20px;
+}
+
+#but_1{
+	padding-top: 20px;
+}
+#chisl{
+	margin-top: -20px;
+	margin-left:60px;
+}
+
+#chisl_1{
+	margin-top: 0px;
+	padding-left: 20px;
+}
+
+#chisl_2{
+	margin-top: 0px;
+	margin-left:45px;
+}
+
+#chisl_3{
+	margin-top: 0px;
+	margin-left:70px;
+}
+
+#rez_out_fz_2{
+	margin-top:-55px;
+	margin-left:145px;
+}
+
+
+#rez_out_fz_3{
+	margin-top:-58px;
+	margin-left:155px;
+}

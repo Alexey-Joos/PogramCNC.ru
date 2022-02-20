@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="style_all.css">
+	<link rel="stylesheet" type="text/css" href="style_1_p2_p3_p4.css">
+	<link rel="stylesheet" type="text/css" href="style_3_page3.css">
+	<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+	<script src="JavaSript_page3.js" defer></script>
+	<script src="fabric.min.js"></script>
+	<script src="jquery-3.3.1.min.js"></script>
+	<script src="jquery.mousewheel.min.js"></script>
+	<script src="jquery-jvectormap-2.0.1.min.js"></script>
+	<title>Формулы режимов резания</title>
+	<meta property="og:description" content="Основные формулы режимов резания для механообработки.">
+	<meta name= "description" content="Основные формулы режимов резания для механообработки.">
+	<meta name= "keywords" content="режимы резания,скорость резания,скорость вращения шпинделя,подача,толщина стружки,производительность снятия материала">
+	<meta name = "author" content="Алексей Домахин">
+	<meta name= "copyright" content="Алексей Домахин">
+	<link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+</head>
+
+<body>
+<header>
+
+		<div class ="sub_header">
+			<img id="Logotip" src="Logotip.PNG"></div>
+		
+		</header>
+
+
+
+	<div class ="menu">	
+		<button class="dropbtn"><a href="index.html">Главная</a></button>
+
+
+		<div class ="dropdown">
+			
+	<button  class="dropbtn dropbtn_turn">Токарная обработка
+
+			<img class="down_arrow" src="arrow_down.svg"/>
+			<img class="up_arrow" src="up-arrow.svg"/>
+
+			</button>
+			<div  id="myDropdown" class="dropdown-content">
+			<button class="droplink">	<a href ="page2.html">Редактор УП</a></button>
+			<button class="droplink">	<a href ="page3.html">Формулы режимов резания</a></button>
+			<button class="droplink">	<a href ="page4.html">Пример УП</a></button>
+			</div>
+		</div>
+
+		<button class="dropbtn"><a href="page5.html">Контакты</a></button>
+	</div>
+
+	<div class="tabs">
+		<input id="tab2" type="radio" name="tabs" checked>
+		<label for="tab2"  title="Режимы резания">Формулы режимов резания</label>
+		<section id="content-tab2">
+			<div class="Help-code">
+				<div id="title-code">Формула вычисления скорости резания</div>
+			<div id="text-code">
+				<p><span>&nbsp &nbsp &nbsp Скорость резания</span> — путь перемещения режущей кромки инструмента относительно обрабатываемой поверхности изделия в единицу времени. Является одним из основных параметров технологического процесса резания металлов; зависит от свойств обрабатываемого материала и резца, размеров снимаемой стружки, чистоты обработки, технических характеристик станка; выражается в метрах в минуту (м/мин) или в метрах в секунду (м/с).</p>
+				$$V_{c}={D&times;&pi;&times;n \over 1000},$$
+				<p><span>D = </span><input type="text" id="diam" placeholder="0.0"> - диаметр обрабатываемой поверхности/диаметр фрезы,</p>
+				<p><span>n =  </span><input type="text" id="oboroti" placeholder="0.0"> -  частота вращения шпинделя в минуту,</p>
+				<p><span>&#960; </span> - математическая постоянная, равная отношению длины окружности к её диаметру,</p>
+				<button  onclick="result_v()">Вычислить</button>
+				<p><span>V = </span><input id="out_V" readonly> - скорость резания.</p>
+				
+ 			</div>
+			</div>
+			<hr align="center" width="1200" size="2" color=" black " />
+
+			<div class="Help-code">
+				<div id="title-code">Формула вычисления скорости вращения шпинделя</div>
+			<div id="text-code">
+				<p><span>&nbsp &nbsp &nbsp Скорость вращения шпинделя</span> — это скорость, с которой вращается фрезерный или токарный шпиндель вместе с цанговым патроном и фрезой, имеет обозначение (об/мин). </p>
+				$$n={V&times;1000\over D&times;&pi;},$$
+		        <p><span>D = </span><input type="text" id="diam_n" placeholder="0.0"> - диаметр обрабатываемой поверхности/диаметр фрезы,</p>
+        		<p><span>V = </span><input type="text" id="skorez" placeholder="0.0"> -  скорость резания,</p>
+       			<p><span>&#960; </span> - математическая постоянная, равная отношению длины окружности к её диаметру,</p>
+				<button  onclick="result_n()">Вычислить</button>
+				<p><span>n = </span><input id="out_n" readonly> - частота вращения шпинделя.</p>
+				
+ 			</div>
+			</div>
+			<hr align="center" width="1200" size="2" color=" black " />
+
+
+			<div class="Help-code">
+				<div id="title-code">Формула вычисления скорости подачи</div>
+			<div id="text-code">
+				<p>&nbsp &nbsp &nbsp Подачу при механообработки делят на подачу на зуб, на оборот и на минутную подачу. <span>Подачей на зуб &fnof;<small><small>z </small></small></span> называют путь, на который перемещается обрабатываемая деталь или режущий инструмент за время поворота на угол между двумя соседними зубьями. <span>Подачей на оборот &fnof;<small><small>o</small></small></span> называют путь, на который передвигается заготовка или режущий инструмент за время одного полного оборота.<span> Подачей в минуту &fnof;</span> называют путь, на которой передвигается заготовка или режущий инструмент за единицу времени, <span>z</span> - число зубьев фрезы, <span>n</span> - частота вращения шпинделя.</p>
+			$$f={f_{z}&times;z_{n}&times;n},$$
+				<p><span>&fnof;<small><small>z </small></small></span> = <input type="text" id="fz" placeholder="0.0"> - подача на зуб,</p>
+				<p><span>z<small><small>n</small></small></span> = <input type="text" id="z" placeholder="0.0"> - количество зубьев фрезы,</p>
+				<p><span>n = </span><input type="text" id="oboroti_fz" placeholder="0.0"> -  частота вращения шпинделя в минуту,</p>
+				<button onclick="result_fz()">Вычислить</button>
+				<p><span>&fnof;</span> = <input id="out_fz" readonly> - подача в минуту.</p>
+
+			$$f_{z}={f\over z_{n}&times;n},$$
+				<p><span>&fnof;</span> = <input type="text" id="f_1" placeholder="0.0"> - подача в минуту,</p>
+				<p><span>z<small><small>n</small></small></span> = <input type="text" id="z_1" placeholder="0.0"> - количество зубьев фрезы,</p>
+				<p><span>n</span> =  </span><input type="text" id="oboroti_fz_1" placeholder="0.0"> -  частота вращения шпинделя в минуту,</p>
+				<button onclick="result_fz_1()">Вычислить</button>
+				<p><span>&fnof;<small><small>z </small></small></span> = <input id="out_fz_1" readonly>  - подача на зуб.</p>
+
+
+			$$f_{o}={f_{z}&times;z_{n}},$$
+				<p><span>&fnof;<small><small>z </small></small></span> = <input type="text" id="fz_2" placeholder="0.0"> - подача на зуб,</p>
+				<p><span>z<small><small>n</small></small></span> = <input type="text" id="z_2" placeholder="0.0"> - количество зубьев фрезы,</p>
+				<button onclick="result_fz_2()">Вычислить</button>
+				<p><span>&fnof;<small><small>o </small></small></span> = <input  id="result123" readonly> - подача на оборот.</p>
+ 			</div>
+			</div>
+			<hr align="center" width="1200" size="2" color=" black " />
+
+
+			<div class="Help-code">
+				<div id="title-code">Формула вычисления производительности снятия материала</div>
+			<div id="text-code">
+				<p><span>&nbsp &nbsp &nbsp Производительность снятия материала</span> – это объем удаляемого материала в единицу времени, определяемый глубиной, шириной обработки и величиной подачи. <span>Глубина резания a<sub>p</sub></span>, мм – это расстояние между обработанной и еще необработанной поверхностями, измеряемое вдоль оси фрезы. <span>Ширина резания a<sub>e</sub></span>, мм – это величина срезаемого припуска, измеренная в радиальном направлении или ширина контакта заготовки и инструмента. <span>Подачей в минуту &fnof;</span> называют путь, на которой передвигается заготовка или режущий инструмент за единицу времени.
+
+			$$Q={a_{p}&times;a_{e}&times;f\over 1000},$$
+				<p><span>a<sub>p</sub></span> = <input id="glyb" placeholder="0.0"> - глубина резания,</p>
+				<p><span>a<sub>e</sub></span> = <input id="shir" placeholder="0.0"> - ширина резания,</p>
+				<p><span>&fnof;</span> = <input id="f_q" placeholder="0.0"> - подача в минуту,</p>
+				<button onclick="result_Q()">Вычислить</button>
+				<p><span>Q</span> = <input id="out_Q" readonly> - производительность снятия материала.
+ 			</div>
+			</div>
+			<hr align="center" width="1200" size="2" color=" black " />
+
+			<div class="Help-code">
+				<div id="title-code">Формула вычисления толщины стружки при обработке</div>
+			<div id="text-code">
+				$$h = f_{z}&times; \sqrt{a_{e} \over D},$$
+				<p><span>D = </span><input type="text" id="diam_h" placeholder="0.0"> - диаметр,</p>
+				<p><span>a<sub>e</sub></span> = <input id="fz_ae_1" placeholder="0.0"> – ширина резания,</p>
+				<p><span>&fnof;<small><small>z </small></small></span> = <input id="fz_h_1" placeholder="0.0"> – подача на зуб,</p>
+				<button onclick="result_fz_4()">Вычислить</button>
+				<p><span>h</span> = <input  id="out_fz_3" readonly> - толщина снимаемой стружки.
+
+				$$f_{z} = h&times; \sqrt{D \over a_{e} },$$
+				<p><span>D = </span><input type="text" id="diam_fz" placeholder="0.0"> - диаметр,</p>
+				<p><span>a<sub>e</sub></span> = <input id="fz_ae" placeholder="0.0"> – ширина резания,</p>
+				<p><span>h</span> = <input id="fz_h" placeholder="0.0"> - толщина снимаемой стружки,</p>
+				<button onclick="result_fz_3()">Вычислить</button>
+				<p><span>&fnof;<small><small>z </small></small></span> = <input  id="out_fz_2" readonly> - подача на зуб.
+	 			</div>
+			</div>
+			<hr align="center" width="1200" size="2" color=" black " />
+
+			
+
+			
+		</section>
+				</div>
+						<footer>
+							<div id="footer_sub"><div id="footer_sub_1">Контакты:<br> Viber:AlexDomahin<br>
+								Telegram:AlexDomahin<br>
+								Mail:ProgramCNC@mail.ru<br><br>
+							</div></div>
+							<div id="footer_main">ProgramCNC.ru &bull; ЧПУ &bull; Программа</div>
+						</footer>
+			</body>
+			</html>

@@ -1,0 +1,31 @@
+#title-code
+{
+	font-size: 30px;
+	margin-bottom: 30px;
+
+
+}
+
+#text-code
+{
+margin-left: 100px;
+font-size: 20px;
+width: 1000px;
+text-align: justify;
+
+}
+
+#diam,#oboroti,#out_V,#diam_n,#skorez,#out_n,#fz,#z,#oboroti_fz,#out_fz,#f_1,#z_1,#oboroti_fz_1,#out_fz_1,#fz_2,#z_2,#result123,#glyb,#shir,#f_q,#out_Q,#diam_h,#fz_ae_1,#fz_h_1,#out_fz_3,#diam_fz,#fz_ae,#fz_h,#out_fz_2{
+	line-height: 23px;
+	font-size: 20px;
+	max-width:60px;
+}
+#text-code>p>span
+{
+font-style: italic;
+
+}
+#text-code>button
+{
+	font-size: 20px;
+}

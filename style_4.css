@@ -1,0 +1,199 @@
+#content-tab1{
+
+	background: rgb(79,99,108);
+
+}
+
+#content-tab3{
+
+	background: rgb(230,230,230);
+}
+
+#Fanuc_Series{
+	width: 700px;
+	height: 30px;
+	margin-left: 20px;
+	font-size:25px;
+	background:rgb(249,255,17);
+	padding-left: 5px;
+}
+
+#Fanuc{
+	color:red;
+
+}
+
+#empty{
+
+	width: 1180px;
+	background: rgb(103,223,213);
+	margin-top: 20px;
+	text-align: right;
+	font-size:24px;
+	border:20px groove rgb(69,99,108);
+}
+
+#main_window{
+	font-size:16px;
+	background: rgb(192,192,192);
+	text-align: left;
+	padding-top: 20px;
+	height: 1320px;
+}
+
+#CNC_Program{
+
+	border:15px groove rgb(192,192,192);
+	max-height: 667px;
+	max-width: 406px;
+	min-height: 667px;
+	min-width: 406px;
+	font-size: 14px;
+	margin-left: 20px;
+	color:white;
+	background: rgb(0,107,196);
+	text-align: right;
+	box-shadow: 3px 2px 5px black;
+}
+
+#Graph{
+
+	width: 650px;
+	height: 668px;
+	margin-top: -696px;
+	margin-left: 477px;
+	background: rgb(0,107,196);
+	color:white;
+	text-align: right;
+	border:14px groove rgb(192,192,192);
+	box-shadow: 3px 2px 5px black;
+}
+
+#Alarm{
+	margin-left: 20px;
+	margin-top:520px; 
+	height: 139px;
+	width: 1110px;
+	border:14px groove rgb(192,192,192);
+	background: rgb(0,107,196);
+	box-shadow: 3px 2px 5px black;
+	text-align: right;
+	color:white;
+}
+
+#AlarmWindow{
+	max-height: 120px;
+	max-width: 1108px;
+	min-height: 120px;
+	min-width: 1108px;
+	font-size: 20px;
+	background: rgb(177,186,188);
+	border:none;
+	color: red;
+}
+
+#CreateStock_main{
+	margin-top: 15px;
+	text-align: right;
+	height: 240px;
+	width: 380px;
+	border:14px groove rgb(192,192,192);
+	background: rgb(0,107,196);
+	color:white;
+	box-shadow: 3px 2px 5px black;
+	border:14px groove rgb(192,192,192);
+	float: right;
+	margin-right: 20px;
+}
+
+#CreateStock{
+	
+	height: 220px;
+	width: 380px;
+	background: rgb(177,186,188);
+	margin-top: 2px;
+	color: black;
+	float: right;
+	
+	}
+
+#D_1,#D_2,#D_3,#D_4,#D_5,#L_1{
+
+	width: 50px;
+	height: 16px;
+	margin-right: 25px;
+	position:absolute;
+	text-align: right;
+}
+
+#sourceStock{
+	margin-top: 20px;
+	margin-left: 25px; 
+	float:left;
+
+
+}
+
+#D1,#D2
+{
+	position:absolute;
+	margin-left: 180px;
+
+}
+
+#D2
+{
+	margin-top: 35px;
+	
+}
+
+#D3
+{
+
+	position:absolute;
+	margin-top: 0px;
+	margin-left: 270px;
+
+}
+
+#D4
+{
+	position:absolute;
+	margin-top: 35px;
+	margin-left: 270px;
+
+}
+
+#L
+{
+	position:absolute;
+	margin-top: 70px;
+	margin-left: 282px;
+}
+
+#D5
+{
+	position:absolute;
+	margin-top: 105px;
+	margin-left: 272px;
+}
+
+
+#D3_D4_D5
+{
+	position:absolute;
+	margin-top: 0px;
+	margin-left: 180px;
+}
+
+#button13{
+	width: 90px;
+	height: 40px;
+	margin-top: 160px;
+	float: right;
+	margin-right: 37px;
+	overflow: hidden;
+
+
+}
+

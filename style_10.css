@@ -1,0 +1,15 @@
+
+html{
+	padding: 0;
+	margin:0;
+}
+
+
+.qwerty{
+	background: red;
+	width: 100%;
+	margin: 0;
+	position: relative;
+	box-sizing: border-box;
+
+}

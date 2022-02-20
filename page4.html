@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="style_all.css">
+	<link rel="stylesheet" type="text/css" href="style_1_p2_p3_p4.css">
+	<link rel="stylesheet" type="text/css" href="style_11_page4.css">
+	<script src="fabric.min.js"></script>
+	<script src="jquery-3.3.1.min.js"></script>
+	<script src="jquery.mousewheel.min.js"></script>
+	<script src="jquery-jvectormap-2.0.1.min.js"></script>
+	<title>Пример управляющей программы для ЧПУ</title>
+	<meta property="og:description" content="Пример управляющей программы для токарного станка ЧПУ.">
+	<meta name= "description" content="Пример управляющей программы для токарного станка ЧПУ.">
+	<meta name= "keywords" content="ЧПУ,G-коды,M-функции,управляющая программа,G83,G96,Fanuc">
+	<meta name = "author" content="Алексей Домахин">
+	<meta name= "copyright" content="Алексей Домахин">
+	<link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+</head>
+
+<body>
+	<header>
+
+		<div class ="sub_header">
+			<img id="Logotip" src="Logotip.PNG"></div>
+		
+		</header>
+
+
+
+	<div class ="menu">	
+		<button class="dropbtn"><a href="index.html">Главная</a></button>
+
+
+		<div class ="dropdown">
+			
+	<button  class="dropbtn dropbtn_turn">Токарная обработка
+
+			<img class="down_arrow" src="arrow_down.svg"/>
+			<img class="up_arrow" src="up-arrow.svg"/>
+
+			</button>
+			<div  id="myDropdown" class="dropdown-content">
+			<button class="droplink">	<a href ="page2.html">Редактор УП</a></button>
+			<button class="droplink">	<a href ="page3.html">Формулы режимов резания</a></button>
+			<button class="droplink">	<a href ="page4.html">Пример УП</a></button>
+			</div>
+		</div>
+
+		<button class="dropbtn"><a href="page5.html">Контакты</a></button>
+	</div>
+	
+	<div class="tabs">
+			<input id="tab3" type="radio" name="tabs" checked>
+		<label for="tab3"  title="Пример">Пример управляющей программы</label>
+
+			<section id="content-tab3">
+								<a name="top"></a>
+								<div id='userInput1' readonly>
+									%<br>
+									O1234<br>
+									G28U0.W0.<br>
+									T0101(TOCHENIE)<br>
+									G95G40G80G18<br>
+									G92S3000<br>
+									G96S100M4<br>
+									G0X10.Z1.<br>
+									M8<br>
+									G1Z0.F0.1<br>
+									X0.<br>
+									G0Z1.<br>
+									X8.<br>
+									G1G42Z0.<br>
+									X9.Z-0.5<br>
+									Z-5.<br>
+									X9.5<br>
+									G40<br>
+									G0Z1.<br>
+									M9<br>
+									M5<br>
+									G28U0.W0.<br>
+									<br>
+									M0<br>
+									T0202(SVERLO)<br>
+									G95G40G80G18<br>
+									G97S2000M3<br>
+									G0X0.Z1.<br>
+									M8<br>
+									G83Z-6.Q2.F0.05<br>
+									G80<br>
+									G0Z1.<br>
+									M5<br>
+									M9<br>
+									G28U0.W0.<br>
+									<br>
+									M1<br>
+									T0303(RASTOCHNOI)<br>
+									G95G40G80G18<br>
+									G97S2000M3<br>
+									G0X5.Z1.<br>
+									M8<br>
+									G1Z0.F0.05<br>
+									G2X4.Z-0.5R0.5<br>
+									G1Z-5.<br>
+									X3.5<br>
+									G0Z1.<br>
+									M5<br>
+									M9<br>
+									G28U0.W0.<br>
+									<br>
+									M1<br>
+									T0404(OTREZNOI)<br>
+									G95G40G80G18<br>
+									G92S2000<br>
+									G96S100M3<br>
+									G0X11.Z5.<br>
+									M8<br>
+									G1Z-4.F0.5<br>
+									G1X0.F0.1<br>
+									G0X11.<br>
+									Z5.<br>
+									M5<br>
+									M9<br>
+									G28U0.W0.<br>
+									M30<br>
+									%<br>
+								</div>
+
+								<div class='userInput2' readonly>
+									<big>T0101</big> - <a href="#ToolCall">вызов инструмента и номер коррекции</a><br>
+									<big>G0/G00</big> -<a href="#G00-Poz">позиционирование</a><br>
+									<big>G1/G01</big> - <a href="#G01-Poz">линейная интерполяция</a><br>
+									<big>G2/G02</big> -<a href="#G02/G03-Poz">круговая интерполяция по часовой стрелке</a><br>
+									<big>G3/G03</big> -<a href="#G02/G03-Poz">круговая интерполяция поротив часовой</a><br>
+										<span> R - <a href="#G02/G03-Poz">радиус скругления</a></span><br>
+									<big>G18</big> - <a href="#G17">выбор плоскости</a><br>
+									<big>G28</big> - <a href="#G28">возврат к референтной точке</a><br>
+									<big>G40</big> - <a href="#G41/G42">отмена режима компенсации радиуса</a><br>
+									<big>G41</big> - <a href="#G41/G42">компенсация радиуса инструмента, влево</a><br>
+									<big>G42</big> - <a href="#G41/G42">компенсация радиуса инструмента, вправо</a><br>
+									<big>G92</big> - <a href="#G96/G97">ограничение скорости шпинделя</a><br>
+									<big>G95</big> - <a href="#G95">подача на оборот</a><br>
+									<big>G96</big> - <a href="#G96/G97">включение постоянной скорости резания</a></a><br>
+									<big>G97</big> - <a href="#G96/G97">отключение постоянной скорости резания</a><br>
+									<big>G83</big> - <a href="#G83">цикл сверления торцевых поверхностей</a><br>
+									   <span>Z - <a href="#G83">глубина сверления</a></span>  <br>
+									   <span>Q - <a href="#G83">шаг углубления</a></span> <br>
+									   <span>F - <a href="#G83">подача</a></span> <br>
+									<big>G80</big> -<a href="#G83">отмена постоянного цикла сверления</a><br>
+									<big>M0</big> - <a href="#M00">безусловный останов</a><br>
+									<big>M1</big> - <a href="#M01">условный останов</a><br>
+									<big>M3</big> - <a href="#M03/M04/M05">включение шпинделя по часовой стрелке</a><br>
+									<big>M4</big> - <a href="#M03/M04/M05">включение шпинделя против стрелке</a><br>
+									<big>M5</big> - <a href="#M03/M04/M05">выключение шпинделя</a><br>
+									<big>M8</big> - <a href="#M08/M09">включение СОЖ</a><br>
+									<big>M9</big> - <a href="#M08/M09">выключение СОЖ</a><br>
+									<big>M30</big> -<a href="#M30"> конец программы</a><br>
+									<big>F</big> - <a href="#G01-Poz">подача</a><br>
+									<big>S</big> - <a href="#G96/G97">количество оборотов в минуту</a>
+								</div>
+	<div id="BUp"><a href="#top" id="Up"><img id="back_arrow" src="back-arrow.svg"/></a></div>
+							<div class="Help-code">
+								<div id="title-code"><a name="ToolCall">Вызов инструмента и номер коррекции(T0101).</a><br></div>
+								<div id="text-code">
+								<img src="Tool.png"><br>
+								<div id="picture">Рис.1 Схема блока вызова инструмента и вызова номера коррекции.</div>
+								<br>
+								- Ввод первых двух цифр указывает на позицию нужного инструмента в станке.<br>
+								- Ввод вторых двух цифр направляет на номер коррекции в таблице инструментов(Offset).
+								</div>
+								<hr align="center" width="1200" size="2" color=" black " />
+
+							</div>
+							<div class="Help-code">
+								<div id="title-code"><a name="G00-Poz">Позиционирование(G00/G0).</a><br></div>
+								<div id="text-code">
+								<img src="G00-Poz.png"><br>
+								<div id="picture">Рис.2 Пример позиционирования G00.</div><br>
+								&nbsp &nbsp &nbsp Код управляющей программы G00 перемещает режущий инструмент, в заданной системе координат, от одной точки позиционирования(G28U0.W0.) до следующей точки(X10.Z1.) на ускоренной подачи.<br>
+								- Величина ускоренной подачи при программном коде-G00 устанавливается изготовителем станка.<br>
+								- Адресом F невозможно установить скорость ускоренной подачи.<br>
+								- При позиционировании G00, необходимо убедиться, что заданная траектория режущего инструмента не пересекает заготовку.
+								</div>
+								<hr align="center" width="1200" size="2" color=" black " />
+							</div>
+							<div class="Help-code">
+								<div id="title-code"><a name="G01-Poz">Линейная интерполяция(G01/G1).</a><br></div>
+								<div id="text-code">
+								<img src="G01-Poz.png"><br>
+								<div id="picture">Рис.3 Пример линейной интерполяции G01/G1.</div><br>
+								&nbsp &nbsp &nbspКоманда G01 перемещает режущий инструмент, в заданной системе координат, от одной точки(X10.Z1.) до следующей точки(Z0.) со скоростью подачи, заданной адресом F.<br>
+								- Необязательно указывать подачу F в каждом блоке управляющей программы, она действует до следующего ввода.<br>
+								- Если при первом включении линейной интерполяции(G01/G1) не указана подача F, то скорость подачи будет равна нулю.
+							 </div>
+								<hr align="center" width="1200" size="2" color=" black " />
+
+							<div class="Help-code">
+								<div id="title-code"><a name="G01-Poz">Круговая интерполяция(G02/G03).</a><br></div>
+								<div id="text-code">
+								<img src="G2-G3.png"><br>
+								<div id="picture">Рис.4a Пример круговой интерполяции G03/G3. &nbsp &nbsp &nbsp &nbsp &nbspРис.4b Пример круговой интерполяции G02/G2.</div><br>
+								&nbsp &nbsp &nbsp При команде G02/G03 режущий инструмент перемещается в нужное положение(X4.Z-0.5) по дуге со скоростью подачи F.<br>
+								- G02/G2 - движение "по часовой стрелке" по дуге.<br>
+								- G03/G3 - движение "против часовой стрелке" по дуге.<br>
+								- R - радиус скругления траектории.<br>
+					 		 </div>
+		 		 				<hr align="center" width="1200" size="2" color=" black " />
+
+							</div>
+
+							<div class="Help-code">
+								<div id="title-code"><a name="G17">Выбор плоскости.</a><br></div>
+								<div id="text-code">
+
+								- G17 - Плоскость XY <br>
+								- G18 - Плоскость ZX<br>
+								- G19 - Плоскость YZ<br><br>
+								&nbsp &nbsp &nbsp Командой G17/G18/G19 выбирается плоскость для коррекции на радиус(G41/G42), для круговой интерполяции(G2/G3), сверления(G83) и вращения системы координат.<br>
+								- При включении станка по умолчанию ставится плоскость G18.
+
+							</div>
+		 		 				<hr align="center" width="1200" size="2" color=" black " />
+
+		 		 			<div class="Help-code">
+								<div id="title-code"><a name="G28">Возврат в референтное положение(G28/G30).</a><br></div>
+							<div id="text-code">
+									<img src="G28.png"><br>
+									<div id="picture">Рис.5 Пример возврата в референтное положение.</div><br>
+								&nbsp &nbsp &nbsp После ввода команды G28/G30, режущий инструмент автоматически перемещается в референтное положение на ускоренной подачи.<br>
+								G28 - первое референтное положение.<br>
+								G30 - второе референтное положение.<br>
+								- Перед вводом команды следует отменить коррекцию на радиус инструмента(G40).<br>
+								- Необходимо убедиться, что траектория возврата в референтное положение не пересекает заготовку, оснастку.<br>
+							</div>
+		 		 				<hr align="center" width="1200" size="2" color=" black " />
+							</div>
+
+								<div class="Help-code">
+								<div id="title-code"><a name="G41/G42">Компенсация радиуса инструмента(G41/G42).</a><br></div>
+							<div id="text-code">
+									<img src="1G41-G42A.png"><br>
+									<div id="picture">Рис.6a Коррекция на радиус отключена.&nbsp &nbsp &nbsp &nbsp &nbsp Рис.6b Коррекция на радиус включена.</div>
+									<br>
+								&nbsp &nbsp &nbsp Большинство режущих пластин на вершине имеют закругленность, по этой причине необходимо использовать функцию коррекции радиуса вершины инструмента для автоматической компенсации погрешности.<br>
+								- Для включения коррекции на радиус(G41/G42) необходимо движение режущего инструмента хотя бы по одной из осей. Поэтому G41 или G42 записывают в одном блоке с линейной интерполяцией(G1G42Z0.) и путь должен превышать радиус вершины инструмента.<br>
+								- G41 - Режущий инструмент находится слева от заготовки.<br>
+								- G42 - Режущий инструмент находится справа от заготовки.<br>
+								- G40 - отмена компенсация радиуса инструмента(G41/G42).<br>
+								<img src="G41-G42B.png"><br>
+								<div id="picture">Рис.6с Положение режущего инструмента при включенной компенсации относительно заготовки.</div><br>
+
+								- Направление вершины режущего инструмента по отношению к центру вершины инструмента определяется направлением движения инструмента в процессе резания.<br>
+								- Радиус и номер положения режущего инструмента устанавливается в параметрах инструмента(Offset) в ячейках "R" и "T" соответственно.<br><br>
+								<img src="G41-G42C.png"><br>
+								<div id="picture">Рис.6d Направление вершины режущего инструмента</div><br>
+							</div>
+		 		 				<hr align="center" width="1200" size="2" color=" black " />
+							</div>
+
+							 			<div class="Help-code">
+								<div id="title-code"><a name="G95">Подача за оборот (G95). Подача за минуту (G94).</a><br></div>
+							<div id="text-code">
+									&nbsp &nbsp &nbsp При активной команде G95 подача F зависит от числа оборотов S. То есть, за один оборот шпинделя режущий инструмент перемещается на расстояние заданное адресом F. Соответственно, увеличение оборотов приведет к увеличению подачи.<br>
+									&nbsp &nbsp &nbsp При активной команде G94 режущий инструмент перемещается за единицу времени на расстояние заданное значением F. От оборотов подача инструмента не зависит.<br>
+
+							</div>
+		 		 				<hr align="center" width="1200" size="2" color=" black " />
+							</div>
+
+
+
+							 <div class="Help-code">
+								<div id="title-code"><a name="G96/G97">Команда контроля постоянства скорости резания(G96/G97). Ограничение скорости(G92/G50).</a><br></div>
+								<div id="text-code">
+								&nbsp &nbsp &nbsp Команда G96 активирует режим контроля постоянства скорости резания, которая заданна значением S (G96S100M4). То есть, при работе автоматически рассчитываются обороты шпинделя в зависимости от диаметра, на котором в данный момент находится режущий инструмент, сохраняя тем самым постоянную скорость резания.
+								<br>- Контроль скорости резания происходит по оси X(по умолчанию).
+								<br>- Больше диаметр заготовки - меньше оборотов.
+								<br>- Меньше диаметр - больше оборотов.
+								<br>- Автоматически включается G95.<br>
+								&nbsp &nbsp &nbsp Команда G96 отменяет режим контроля постоянства скорости резания. То есть, при работе число оборотов шпинделя будет равна  значению S (G97S2000M3).<br>
+								&nbsp &nbsp &nbsp  Команда G92/G50 устанавливает ограничение оборотов шпинделя. То есть, если, при активном режиме контроля скорости резания(G96), значение число оборотов превышает значения ограничения(G92/G50), то вращение шпинделя фиксируется максимальной скоростью, заданной значением S (G92S2000).
+
+							</div>
+		 		 				<hr align="center" width="1200" size="2" color=" black " />
+							</div>
+
+							<div class="Help-code">
+								<div id="title-code"><a name="G83">Цикл сверления торцевых поверхностей(G83). Отмена постоянного цикла сверления(G80).</a><br></div>
+							<div id="text-code">
+									<img src="G83.png"><br>
+									<div id="picture">Рис.7 Схема работы постоянного цикла сверления(G83).</div><br>
+								&nbsp &nbsp &nbsp Команда G83 вызывает постоянный цикл сверления с периодическим выводом сверла. Сверло повторяет цикл сверления со скоростью рабочей подачи и периодически отводится на заданное расстояние отвода, для вытягивания стружки из отверстия.<br>
+								&nbsp &nbsp &nbsp &nbsp&nbsp Команда G80 отменяет постоянный цикл сверления.<br>
+								d - расстояние отвода, заданное в параметре 5114.
+
+							</div>
+		 		 				<hr align="center" width="1200" size="2" color=" black "/>
+							</div>
+
+							<div class="Help-code">
+								<div id="title-code"><a name="M00">Безусловный останов(М00)</a><br></div>
+							<div id="text-code">
+									Код М00/M0 - команда программной остановки, при которой происходит безусловная остановка работы станка. Когда программа прекращает работу, вся существующая информация остается неизменной. Возобновить работу возможно нажатием клавиши "пуск цикла". 
+							</div>
+		 		 				<hr align="center" width="1200" size="2" color=" black "/>
+							</div>
+
+								<div class="Help-code">
+								<div id="title-code"><a name="M01">Условный останов(М01)</a><br></div>
+							<div id="text-code">
+									 Код М01/M1 - команда программной остановки, при которой происходит остановка работы станка, с условием то, что переключатель станка "Optional Stop" установлен на On. Когда программа прекращает работу, вся существующая информация остается неизменной. Возобновить работу возможно нажатием клавиши "пуск цикла". 
+							</div>
+		 		 				<hr align="center" width="1200" size="2" color=" black "/>
+							</div>
+
+							<div class="Help-code">
+								<div id="title-code"><a name="M03/M04/M05">Включение вращения шпинделя(M03/M04).Остановка шпинделя(M05).</a><br></div>
+							<div id="text-code">
+									Код М03/M3 включает прямое (по часовой стрелке) вращение шпинделя.<br>
+									Код М04/M4 отвечает за обратное вращение шпинделя (против часовой стрелке).<br>
+									Число оборотов шпинделя вводится адресом S(S2000M3).<br>
+									Код M05/M5 отключает вращение шпинделя.<br>
+
+
+							</div>
+		 		 				<hr align="center" width="1200" size="2" color=" black "/>
+							</div>
+
+							<div class="Help-code">
+								<div id="title-code"><a name="M08/M09">Включение СОЖ(M08).Отключение СОЖ(M09).</a><br></div>
+							<div id="text-code">
+									Программный код M08/M8 включает смазочно-охлаждающую жидкость(СОЖ).<br>
+									Команда M09/M9 отключает смазочно-охлаждающую жидкость(СОЖ).<br>
+
+
+							</div>
+		 		 				<hr align="center" width="1200" size="2" color=" black "/>
+							</div>
+
+							<div class="Help-code">
+								<div id="title-code"><a name="M30">Конец программы(M30).</a><br></div>
+							<div id="text-code">
+								Код M30 завершает работу управляющий программы, и скидывает процесс в начало программы.
+							</div>
+		 		 				<hr align="center" width="1200" size="2" color=" black "/>
+							</div>
+
+
+							</section> 
+
+
+
+						</div>
+						
+						<footer>
+							<div id="footer_sub"><div id="footer_sub_1">Контакты:<br> Viber:AlexDomahin<br>
+								Telegram:AlexDomahin<br>
+								Mail:ProgramCNC@mail.ru<br><br>
+							</div></div>
+							<div id="footer_main">ProgramCNC.ru &bull; ЧПУ &bull; Программа</div>
+						</footer>
+					</body>
+					</html>

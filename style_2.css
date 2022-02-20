@@ -1,0 +1,78 @@
+
+.canvas_container{
+	width: 650px;
+	height: 650px;
+}
+
+.canvas_container1{
+	width: 650px;
+	height: 650px;
+	margin-top: -650px;
+}
+
+#c1
+{
+	z-index: 1;
+	/*background: rgb(230,230,230);
+	background-image: url('Polotno.png');*/
+}
+
+#c2
+{
+	z-index:0;
+    background: rgb(230,230,230);
+	background-image: url('Polotno.png');
+}
+
+
+
+#userInput{
+	max-height: 649px;
+	max-width: 404px;
+	min-height: 649px;
+	min-width: 404px;
+	font-size: 20px;
+	font-weight: 20px;
+	background: rgb(177,186,188);
+	border: none;
+
+}
+
+#userInput1{
+	max-height: 800px;
+	max-width: 404px;
+	min-height: 800px;
+	min-width: 404px;
+	font-size: 16px;
+	font-weight: 20px;
+	background: rgb(177,186,188);
+	border: none;
+	border:20px groove rgb(69,99,108);
+	overflow: auto;
+	padding-left:5px;
+	padding-top:5px;
+}
+
+#userInput2
+{
+	max-height: 800px;
+	max-width: 670px;
+	min-height: 800px;
+	min-width: 670px;
+	font-size: 16px;
+	font-weight: 20px;
+	background: rgb(177,186,188);
+	border: none;
+	border:20px groove rgb(69,99,108);
+	overflow: auto;
+	margin-left: 500px;
+	margin-top:-840px;
+	padding-left:5px;
+	padding-top:5px;
+}
+
+
+dfn{
+	font-size: 20px;
+
+}

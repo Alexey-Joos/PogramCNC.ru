@@ -1,0 +1,22 @@
+#parametrs{
+	width: 453px;
+	height: 245px;
+	position: absolute;
+	margin-top: 175px;
+	margin-left: 25px;
+	font-size: 40px;
+	box-shadow: 0 0 8px 1px black;
+	padding: 10px;
+}
+#X_output,#Z_output{
+	margin-left: 20px;
+	font-size: 50px;
+	
+}
+
+#sub_parametrs{
+	margin-left: 250px;
+	margin-top: -163px;
+	font-size: 35px;
+
+}

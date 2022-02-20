@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="style_all.css">
+	<link rel="stylesheet" type="text/css" href="style_1_p2_p3_p4.css">
+	<link rel="stylesheet" type="text/css" href="style_2_page2.css">
+	<link rel="stylesheet" type="text/css" href="style_4_page2.css">
+	<script src="JavaSript_1_page2.js" defer></script>
+	<script src="JavaSript_2_page2.js" defer></script>
+	<script src="JavaSript_3_page2.js" defer></script>
+	<script src="JavaSript_4_page2.js" defer></script>
+	<script src="JavaSript_5_page2.js" defer></script>
+	<script src="fabric.min.js"></script>
+	<script src="jquery-3.3.1.min.js"></script>
+	<script src="jquery.mousewheel.min.js"></script>
+	<script src="jquery-jvectormap-2.0.1.min.js"></script>
+	<title>Редактор управляющей программы</title>
+	<meta property="og:description" content="Редактор управляющих программ для токарной обработки для станков с устройством ЧПУ Fanuc.">
+	<meta name= "description" content="Редактор управляющих программ для токарной обработки для станков с устройством ЧПУ Fanuc.">
+	<meta name= "keywords" content="ЧПУ,редактор УП,программа для ЧПУ,токарный ЧПУ">
+	<meta name = "author" content="Алексей Домахин">
+	<meta name= "copyright" content="Алексей Домахин">
+	<link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+</head>
+
+<body>
+	<header>
+
+		<div class ="sub_header">
+			<img id="Logotip" src="Logotip.PNG"></div>
+		
+		</header>
+
+
+
+	<div class ="menu">	
+		<button class="dropbtn"><a href="index.html">Главная</a></button>
+
+
+		<div class ="dropdown">
+			
+		<button  class="dropbtn dropbtn_turn">Токарная обработка
+
+			<img class="down_arrow" src="arrow_down.svg"/>
+			<img class="up_arrow" src="up-arrow.svg"/>
+
+			</button>
+			<div  id="myDropdown" class="dropdown-content">
+			<button class="droplink">	<a href ="page2.html">Редактор УП</a></button>
+			<button class="droplink">	<a href ="page3.html">Формулы режимов резания</a></button>
+			<button class="droplink">	<a href ="page4.html">Пример УП</a></button>
+			</div>
+		</div>
+
+		<button class="dropbtn"><a href="page5.html">Контакты</a></button>
+	</div>
+
+	<div class="tabs">
+		<input id="tab1" type="radio" name="tabs" checked>
+		<label for="tab1" title="Токарная обработка">Редактор управляющей программы</label>
+
+		<section id="content-tab1">
+
+			<div id="Fanuc_Series"><a id="Fanuc">FANUC </a>Series</div>
+			<div id="empty">O0000&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;№000000
+				<div id="main_window">
+					<div id="CNC_Program">CNC Program(ЧПУ программа)
+
+						<textarea id='userInput' onKeyUp="userSubmit()"  placeholder="Enter G-code(Введите G-Код)"></textarea></div>
+
+						<div id="Graph">Graph(График)
+							<div class="canvas_container" style="position:relative; overflow:hidden;">
+								<canvas id="c1" width="2000" height="2000"></canvas>
+							</div>
+
+							<div class="canvas_container1" style="position:relative; overflow:hidden;">
+								<canvas id="c2" width="2000" height="2000"></canvas>
+							</div>
+						</div>
+
+							<div id="parametrs">
+								<big>X</big><output id="X_output"> </output> <br>  
+								<big>Z</big><output id="Z_output"> </output><br>  
+								<big>C 0.000</big>
+								<div id="sub_parametrs">
+									T<output id="T_output"> </output><br>
+									S<output id="S_output"> </output><br>
+									F<output id="F_output"> </output><br>
+								</div>
+							</div>
+
+								<div id="otvod">
+								<br>Ref X(Референтная точка)
+								<input type="text" id='X_otvod'  value="300">
+								<br>Ref Z(Референтная точка)
+								<input type="text" id='Z_otvod'  value="300">
+							</div>
+							<div class="buttonCNC">
+								<button  id="button6"  onclick="ClearAlarm()">Clear<br><small>(Очистить)</small></button>
+								<button id="button5" > </button>
+								<button id="button4" > </button>
+								<button id="button3" > </button>
+								<button id="button2" onclick ="CheckAlarm()" >Check<br><small><small>(Проверить)</small></small></button>
+								<button id="button1" onclick ="document.getElementById('userInput').value='';">Reset<br>(Сброс)</button>
+							</div>
+
+							<div class="buttonGraph">
+								<button id="button12" onclick="DeleteStock()">Удалить заготовку</button>
+								<button id="button11" > </button>
+								<button id="button10" > </button>
+								<button id="button9"  > </button>
+								<button id="button8"  onclick="Clear_HalfGraph()" >Clear<br><small>(Очистить)</small></button>
+								<button id="button7"  onclick="Clear_Graph()">Reset<br>(Сброс)</button>
+							</div>
+
+					
+							<div id="CreateStock_main">Create stock(Создать заготовку)
+								
+								<div id="CreateStock">
+									<img id="sourceStock" src="CreateStock.png">
+									<div id="D1">
+										<br>D1
+										<input type="text" id='D_1' >
+									</div>
+
+									<div id="D2">
+										<br>D2
+										<input type="text" id='D_2' >
+									</div>
+									
+									<div id="D3">
+										<br>D3
+										<input type="text" id='D_3'>
+									</div>
+
+									<div id="D4">
+										<br>D4
+										<input type="text" id='D_4'>
+									</div>
+									<div id="L">
+										<br>L
+										<input type="text" id='L_1'>
+									</div>
+									<div id="D5">
+										<br>Z0
+										<input type="text" id='D_5'>
+									</div>
+									<button id="button13" onclick="CreateStock()">Создать</button>
+
+									
+								</div>
+							</div>
+
+
+							<div id='Alarm'>Alarms(Ошибки)
+
+								<textarea id="AlarmWindow" readonly></textarea>
+							</div>
+						</div>
+					</div>
+				</section>
+
+						</div>
+						
+			
+						<footer>
+							<div id="footer_sub"><div id="footer_sub_1">Контакты:<br> Viber:AlexDomahin<br>
+								Telegram:AlexDomahin<br>
+								Mail:ProgramCNC@mail.ru<br><br>
+							</div></div>
+							<div id="footer_main">ProgramCNC.ru &bull; ЧПУ &bull; Программа</div>
+						</footer>
+					</body>
+					</html>
